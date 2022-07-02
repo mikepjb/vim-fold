@@ -31,8 +31,8 @@ function! MarkdownEnvironment()
   setlocal foldmethod=expr
 endfunction
 
-augroup markdown
+augroup fold
   au! Filetype markdown :call MarkdownEnvironment()
   noremap <tab> za
-  au BufNewFile,BufRead *.md :normal zMza
+  au! BufNewFile,BufRead *.md :normal zMza
 augroup END
