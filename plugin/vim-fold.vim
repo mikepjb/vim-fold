@@ -33,4 +33,6 @@ endfunction
 
 augroup markdown
   au! Filetype markdown :call MarkdownEnvironment()
+  noremap <tab> za
+  au BufNewFile,BufRead *.md :normal zMza
 augroup END
