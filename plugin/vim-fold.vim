@@ -34,26 +34,3 @@ endfunction
 augroup markdown
   au! Filetype markdown :call MarkdownEnvironment()
 augroup END
-
-func! FoldOnComments()
-  func! Foldexpr(lnum)
-    let l1 = getline(a:lnum)
-    let l2 = getline(a:lnum+1)
-
-    if l1 =~ '^/.\?\*.*\\*.\?/$'
-      return '>1'
-    elseif l2 =~ '^/.\?\*.*\\*.\?/$'
-      return '<1'
-    else
-      return '='
-    endif
-  endfunc
-
-  setlocal foldexpr=Foldexpr(v:lnum)
-  setlocal foldmethod=expr
-endfunc
-
-augroup commentFolding
-  au! Filetype css :call FoldOnComments()
-  au! Filetype javascript :call FoldOnComments()
-augroup END
