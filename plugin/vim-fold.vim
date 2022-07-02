@@ -34,5 +34,5 @@ endfunction
 augroup fold
   au! Filetype markdown :call MarkdownEnvironment()
   noremap <tab> za
-  au! BufNewFile,BufRead *.md :normal zMza
+  au! BufNewFile,BufRead * set foldenable foldlevel=1
 augroup END
