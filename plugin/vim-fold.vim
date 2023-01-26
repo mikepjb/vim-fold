@@ -33,6 +33,8 @@ endfunction
 
 augroup fold
   au! Filetype markdown :call MarkdownEnvironment()
-  noremap <tab> za
+  if exists('g:vim_fold_use-tab')
+    noremap <tab> za
+  endif
   au! BufNewFile,BufRead * set foldenable foldlevel=1
 augroup END
